@@ -334,6 +334,199 @@ class IshiharaArticleGenerator:
         
         return "\n".join(article)
     
+    def generate_kensuu_style_blog(self, topic, relevant_thoughts):
+        """けんすうスタイル×石原トレーナーのブログ記事生成"""
+        article = []
+        
+        # タイトル
+        article.append(f"# {topic}")
+        article.append("")
+        
+        # けんすう式導入
+        article.append("こんにちは！トレーナーの石原です。")
+        article.append("")
+        article.append(f"今日は「{topic}」について書きたいと思います。")
+        
+        # 問題提起・共感
+        if 'プロテイン' in topic:
+            problem = "「プロテインって本当に必要ですか？」「どれを選べばいいかわからない」"
+            common_advice = "「とりあえず有名なプロテインを買って飲んでください」"
+        elif '筋トレ' in topic or 'トレーニング' in topic:
+            problem = "「どのくらいの頻度でやればいいですか？」「毎日やらないと意味がないですか？」"
+            common_advice = "「毎日少しずつでも続けましょう」"
+        elif '姿勢' in topic:
+            problem = "「猫背が気になって仕方ない」「デスクワークで肩こりがひどい」"
+            common_advice = "「背筋を伸ばして正しい姿勢を心がけましょう」"
+        else:
+            problem = f"「{topic}について悩んでいます」"
+            common_advice = "「頑張って継続しましょう」"
+        
+        article.append(f"最近、お客様から{problem}という相談をよく受けるんですよね。")
+        article.append("")
+        article.append("みなさんもきっと一度は言われたことがあると思うんです。")
+        
+        # 一般的なアドバイスの提示
+        article.append("")
+        article.append("## よくあるアドバイスの落とし穴")
+        article.append("")
+        article.append(f"{topic}でよく言われるのが{common_advice}というアドバイスです。")
+        article.append("")
+        article.append("これ、間違いではないんですが、ちょっと問題があるんですよね。")
+        article.append("")
+        
+        # 問題点の指摘（けんすう式）
+        if '姿勢' in topic:
+            article.append("まず、意識し続けるのがめちゃくちゃ疲れます。")
+            article.append("朝は頑張って背筋を伸ばしていても、昼過ぎには「あ、また猫背になってる...」ってなりがちです。")
+            article.append("")
+            article.append("しかも「正しい姿勢」って、実は人によって違うんです。")
+        elif 'プロテイン' in topic:
+            article.append("まず、「有名だから良い」とは限らないということです。")
+            article.append("味や値段、続けやすさは人それぞれ違いますからね。")
+            article.append("")
+            article.append("しかも、そもそも本当にプロテインが必要かどうかも、その人の食事によって変わります。")
+        elif '筋トレ' in topic:
+            article.append("まず、「毎日」というプレッシャーがしんどいです。")
+            article.append("できない日があると「今日もサボってしまった...」という罪悪感に襲われます。")
+            article.append("")
+            article.append("しかも、毎日やることが必ずしも効果的とは限らないんです。")
+        
+        article.append("")
+        article.append("骨格も筋肉のつき方も、日常の動作パターンも人それぞれ。")
+        article.append("なのに画一的なアドバイスをもらっても、根本的な解決にはならないことが多いんです。")
+        
+        # 視点の転換（けんすう式）
+        article.append("")
+        article.append(f"## {topic.replace('の', '')}が難しい本当の理由")
+        article.append("")
+        article.append("ここで少し視点を変えてみましょう。")
+        article.append("")
+        
+        if '姿勢' in topic:
+            article.append("そもそも、なぜ姿勢が悪くなるのか。")
+            article.append("多くの場合、それは「楽だから」なんです。")
+            article.append("猫背の方が、その人の体にとって楽な状態になってしまっているんですね。")
+            article.append("")
+            article.append("例えば、デスクワークで前かがみになる時間が長いと、胸の筋肉は縮んで、背中の筋肉は伸びっぱなしになります。")
+            article.append("この状態が続くと、体はその姿勢を「正常」だと思い込んでしまうんです。")
+            article.append("")
+            article.append("つまり、姿勢の問題って、実は筋肉のバランスの問題なんです。")
+        elif 'プロテイン' in topic:
+            article.append("そもそも、なぜプロテイン選びが難しいのか。")
+            article.append("それは「何のために飲むのか」が曖昧だからなんです。")
+            article.append("")
+            article.append("筋肉をつけたいのか、食事の栄養バランスを整えたいのか、それとも単純にタンパク質が足りないのか。")
+            article.append("目的によって、選ぶべきプロテインは全然違います。")
+        elif '筋トレ' in topic:
+            article.append("そもそも、なぜ筋トレが続かないのか。")
+            article.append("多くの場合、それは「完璧を求めすぎるから」なんです。")
+            article.append("")
+            article.append("毎日やらないといけない、と思うから挫折する。")
+            article.append("でも実際は、週2回でも十分効果は出るんです。")
+        
+        # とはいえ（けんすう式転換）
+        article.append("")
+        article.append("## とはいえ、○○だけの話でもない")
+        article.append("")
+        
+        if '姿勢' in topic:
+            article.append("「じゃあ筋トレすればいいのか」と思うかもしれませんが、それも半分正解で半分間違いです。")
+            article.append("")
+            article.append("確かに筋力は大切です。")
+            article.append("でも、それ以上に大切なのが「日常の動作パターン」なんですよね。")
+            article.append("")
+            article.append("どんなに筋トレを頑張っても、1日8時間のデスクワークで前かがみになっていたら、その影響の方が大きいんです。")
+            article.append("これ、ちょっと考えてみると当たり前の話ですよね。")
+        elif 'プロテイン' in topic:
+            article.append("「じゃあ食事から摂ればいいのか」と思うかもしれませんが、それも現実的には難しい場合があります。")
+            article.append("")
+            article.append("確かに食事からタンパク質を摂るのが理想です。")
+            article.append("でも、毎日肉や魚を十分な量食べるのって、意外と大変なんですよね。")
+        elif '筋トレ' in topic:
+            article.append("「じゃあ週2回だけやればいいのか」と思うかもしれませんが、それも少し違います。")
+            article.append("")
+            article.append("確かに頻度は週2回でも大丈夫です。")
+            article.append("でも、それよりも大切なのが「楽しく続けられるかどうか」なんですよね。")
+        
+        # 石原トレーナーの考え・提案
+        article.append("")
+        article.append("## 私が考える、もう少し楽なアプローチ")
+        article.append("")
+        article.append("というわけで、僕がお客様にお伝えしているアプローチは、こんな感じです。")
+        article.append("")
+        
+        if '姿勢' in topic:
+            article.append("まず「完璧な姿勢」を目指すのをやめること。")
+            article.append("代わりに「今より少し楽になる姿勢」を見つけることから始めます。")
+            article.append("")
+            article.append("具体的には、デスクの高さやモニターの位置を調整する。")
+            article.append("椅子を変える。")
+            article.append("1時間に1回は立ち上がる習慣をつける。")
+            article.append("こういう小さな変化から始めるんです。")
+        elif 'プロテイン' in topic:
+            article.append("まず「プロテインありき」で考えるのをやめること。")
+            article.append("代わりに「今の食事で足りないタンパク質を補う」という考え方から始めます。")
+            article.append("")
+            article.append("具体的には、現在の食事でどのくらいタンパク質が摂れているかを確認する。")
+            article.append("足りない分だけプロテインで補う。")
+            article.append("続けやすい味や価格のものを選ぶ。")
+            article.append("こんな感じで現実的に考えるんです。")
+        elif '筋トレ' in topic:
+            article.append("まず「毎日やらないといけない」という思い込みをやめること。")
+            article.append("代わりに「週1回でもいいから続ける」ことから始めます。")
+            article.append("")
+            article.append("具体的には、楽しめる種目を見つける。")
+            article.append("短時間でもいいから習慣にする。")
+            article.append("結果より継続を重視する。")
+            article.append("こういう考え方で取り組むんです。")
+        
+        # 実践的なアドバイス
+        article.append("")
+        article.append("そして、ストレッチやエクササイズは「○○を正す」ためではなく「体を動かしやすくする」ために行います。")
+        article.append("硬くなった筋肉をほぐして、使えていない筋肉を動かす。")
+        article.append("それだけで、自然と楽な状態が変わってくるんです。")
+        
+        # 気持ちの持ち方
+        article.append("")
+        article.append("## 気持ちの持ち方も大切")
+        article.append("")
+        article.append("最後に、これは僕の個人的な考えなんですが、一番大切なのは「自分を責めないこと」だと思っています。")
+        article.append("")
+        
+        if '姿勢' in topic:
+            article.append("「また猫背になってる」って気づいた時に、自分を責める必要はありません。")
+            article.append("むしろ「気づけた自分、えらい！」って思ってもらいたいんです。")
+        elif 'プロテイン' in topic:
+            article.append("「今日もプロテイン飲み忘れた」って時に、自分を責める必要はありません。")
+            article.append("むしろ「明日から気をつけよう」って思ってもらいたいんです。")
+        elif '筋トレ' in topic:
+            article.append("「今週も筋トレできなかった」って時に、自分を責める必要はありません。")
+            article.append("むしろ「来週は1回でもやってみよう」って思ってもらいたいんです。")
+        
+        article.append("")
+        article.append("気づくことができれば、少しずつ変えていくことができます。")
+        
+        # ゆるやかなまとめ（けんすう式）
+        article.append("")
+        article.append("## というわけで")
+        article.append("")
+        
+        if '姿勢' in topic:
+            article.append("姿勢改善は「背筋を伸ばす」ことではなく「体が楽になる環境を作ること」から始めてみてください。")
+        elif 'プロテイン' in topic:
+            article.append("プロテイン選びは「有名な商品を買う」ことではなく「自分に必要な分を見極めること」から始めてみてください。")
+        elif '筋トレ' in topic:
+            article.append("筋トレは「毎日やる」ことではなく「楽しく続けられる方法を見つけること」から始めてみてください。")
+        else:
+            article.append(f"{topic}は「完璧にやる」ことではなく「続けやすい方法を見つけること」から始めてみてください。")
+        
+        article.append("")
+        article.append("完璧を目指さず、今より少しだけ楽になることを目標にする。")
+        article.append("")
+        article.append("そんな気持ちで取り組んでもらえたら、きっと続けやすいし、結果的に良い変化が生まれると思います。")
+        
+        return "\n".join(article)
+    
     def extract_title_from_thought(self, thought):
         """考えからタイトルを抽出"""
         # 簡単なタイトル生成ロジック
@@ -478,8 +671,8 @@ class IshiharaArticleGenerator:
     
     def generate(self, topic, platform):
         """記事生成のメイン処理"""
-        if platform not in ['note', 'ameblo']:
-            print("エラー: プラットフォームは 'note' または 'ameblo' を指定してください")
+        if platform not in ['note', 'ameblo', 'blog']:
+            print("エラー: プラットフォームは 'note', 'ameblo', または 'blog' を指定してください")
             return
         
         print(f"{platform}用の記事「{topic}」を生成中...")
@@ -494,8 +687,13 @@ class IshiharaArticleGenerator:
         # プラットフォーム別に記事生成
         if platform == 'note':
             content = self.generate_note_article(topic, relevant_thoughts)
-        else:  # ameblo
+        elif platform == 'ameblo':
             content = self.generate_ameblo_article(topic, relevant_thoughts)
+        elif platform == 'blog':
+            content = self.generate_kensuu_style_blog(topic, relevant_thoughts)
+        else:
+            print(f"エラー: 不明なプラットフォーム '{platform}'")
+            return
         
         # 保存
         filepath, char_count = self.save_article(content, topic, platform)
@@ -513,6 +711,7 @@ def main():
         print("使用方法: python generate.py <テーマ> <プラットフォーム>")
         print("例: python generate.py \"プロテインの選び方\" note")
         print("例: python generate.py \"筋トレ継続のコツ\" ameblo")
+        print("例: python generate.py \"姿勢改善の考え方\" blog")
         sys.exit(1)
     
     topic = sys.argv[1]
